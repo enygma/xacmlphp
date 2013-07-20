@@ -1,0 +1,23 @@
+{
+    "name":"enygma/oasisphp",
+    "type":"library",
+    "description":"A OASIS/XACML library for policy/permissioning",
+    "keywords":["oasis", "xacml", "permission", "policy", "rule"],
+    "homepage":"https://github.com/enygma/oasisphp.git",
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"Chris Cornutt",
+            "email":"ccornutt@phpdeveloper.org",
+            "homepage":"http://www.phpdeveloper.org/"
+        }
+    ],
+    "require":{
+        "php":">=5.3.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Oasisphp": "src/"
+        }
+    }
+}
