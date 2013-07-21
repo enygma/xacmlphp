@@ -45,7 +45,7 @@ $enforcer = new \Oasisphp\Enforcer();
 $decider = new \Oasisphp\Decider();
 $enforcer->setDecider($decider);
 
-// Create a new Match
+// Create some Matches
 $match1 = new \Oasisphp\Match();
 $match1->setOperation('StringEqual')
     ->setDesignator('property1')
@@ -56,10 +56,11 @@ $match2->setOperation('StringEqual')
     ->setDesignator('property1')
     ->setValue('test1234')->setId('TestMatch2');
 
+// Create a Target container for our Matches
 $target = new \Oasisphp\Target();
 $target->addMatches(array($match1, $match2));
 
-// Make a new Rule and add the match to it
+// Make a new Rule and add the Target to it
 $rule1 = new \Oasisphp\Rule();
 $rule1->setTarget($target)
     ->setId('TestRule')
@@ -70,7 +71,7 @@ $rule1->setTarget($target)
     )
     ->setAlgorithm(new \Oasisphp\Algorithm\DenyOverrides());
 
-// Make a new policy and add the Rule to it (with our Match)
+// Make two new policies and add the Rule to it (with our Match)
 $policy1 = new \Oasisphp\Policy();
 $policy1->setAlgorithm(new \Oasisphp\Algorithm\AllowOverrides())
     ->setId('Policy1')
@@ -81,32 +82,32 @@ $policy2->setAlgorithm(new \Oasisphp\Algorithm\DenyOverrides())
     ->setId('Policy2')
     ->addRule($rule1);
 
-// $enforcer->addPolicy($policy);
 
-// Create the subject with its own Attributes
-$subAttr1 = new \Oasisphp\Attribute('property1', 'test');
-// $subAttr2 = new \Oasisphp\Attribute();
-
+// Create the subject with its own Attribute
 $subject = new \Oasisphp\Subject();
-$subject->addAttribute($subAttr1);
-// $subject->addAttribute($subAttr2);
+$subject->addAttribute(
+    new \Oasisphp\Attribute('property1', 'test')
+);
 
-print_r($subject);
-
+// Link the Policies to the Resource
 $resource = new \Oasisphp\Resource();
 $resource
     ->addPolicy($policy1)
     ->addPolicy($policy2);
 
-// $resource = null;
-// $enforcer->isAuthorized($subject, $resource);
 
-$nevironment = null;
+$environment = null;
 $action = null;
 
-$result = $enforcer->isAuthorized($subject, $resource); //, $action, $environment);
+$result = $enforcer->isAuthorized($subject, $resource);
+
+/**
+ * So, because the Subject has the "property1" Atrribute and it's
+ * set to "test", the $result is true
+ */
 
 echo "\n\n".' END RESULT: '.var_export($result, true);
 echo "\n\n";
+
 ?>
 ```
