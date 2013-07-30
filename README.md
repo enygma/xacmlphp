@@ -1,6 +1,6 @@
-Oasisphp
+Xacml-php
 ==========================
-The Oasisphp library is an implementation of the OASIS/XACML standard for Policy-based
+The Xacml-php library is an implementation of the OASIS/XACML standard for Policy-based
 authorization. It's a work in progress, but the basic concepts are there.
 
 ## The OASIS Standard
