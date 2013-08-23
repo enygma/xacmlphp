@@ -54,9 +54,10 @@ class Enforcer
      *
      * @param \Oasisphp\Subject $subject Subject making request
      * @param \Oasisphp\Resource $resource Resource being accessed (policies attached)
+     * @param \Oasisphp\Action $action Action instance
      * @return boolean Allowed/not allowed status
      */
-    public function isAuthorized(\Oasisphp\Subject $subject, \Oasisphp\Resource $resource)
+    public function isAuthorized(\Oasisphp\Subject $subject, \Oasisphp\Resource $resource, \Oasisphp\Action $action)
     {
         $decider = $this->getDecider();
         if ($decider === null) {
