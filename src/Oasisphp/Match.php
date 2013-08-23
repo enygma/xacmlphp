@@ -35,6 +35,30 @@ class Match
     private $value = null;
 
     /**
+     * Init the object with some optional settings
+     *
+     * @param string $operation Operation type
+     * @param string $designator Property name to match
+     * @param string $id Unique ID for the match instance
+     * @param string $value Value to match
+     */
+    public function __construct($operation = null, $designator = null, $id = null, $value = null)
+    {
+        if ($operation !== null) {
+            $this->setOperation($operation);
+        }
+        if ($designator !== null) {
+            $this->setDesignator($designator);
+        }
+        if ($value !== null) {
+            $this->setValue($value);
+        }
+        if ($id !== null) {
+            $this->setId($id);
+        }
+    }
+
+    /**
      * Set the Match ID (Ex. "TestMatch1")
      *
      * @param string $id Match identifier
