@@ -102,8 +102,9 @@ $action = null;
 $result = $enforcer->isAuthorized($subject, $resource);
 
 /**
- * So, because the Subject has the "property1" Atrribute and it's
- * set to "test", the $result is true
+ * The Subject does have a property that's equal to "test" on the "property1"
+ * attribute, but the default Operation is to "fail closed". The other Match,
+ * for "test1234" failed and DenyOverrides wins so the return is false.
  */
 
 echo "\n\n".' END RESULT: '.var_export($result, true);
