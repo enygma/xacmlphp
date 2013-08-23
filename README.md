@@ -46,15 +46,8 @@ $decider = new \Oasisphp\Decider();
 $enforcer->setDecider($decider);
 
 // Create some Matches
-$match1 = new \Oasisphp\Match();
-$match1->setOperation('StringEqual')
-    ->setDesignator('property1')
-    ->setValue('test')->setId('TestMatch1');
-
-$match2 = new \Oasisphp\Match();
-$match2->setOperation('StringEqual')
-    ->setDesignator('property1')
-    ->setValue('test1234')->setId('TestMatch2');
+$match1 = new \Oasisphp\Match('StringEqual', 'property1', 'TestMatch1', 'test');
+$match2 = new \Oasisphp\Match('StringEqual', 'property1', 'TestMatch2', 'test1234');
 
 // Create a Target container for our Matches
 $target = new \Oasisphp\Target();
@@ -73,14 +66,10 @@ $rule1->setTarget($target)
 
 // Make two new policies and add the Rule to it (with our Match)
 $policy1 = new \Oasisphp\Policy();
-$policy1->setAlgorithm(new \Oasisphp\Algorithm\AllowOverrides())
-    ->setId('Policy1')
-    ->addRule($rule1);
+$policy1->setAlgorithm('AllowOverrides')->setId('Policy1')->addRule($rule1);
 
 $policy2 = new \Oasisphp\Policy();
-$policy2->setAlgorithm(new \Oasisphp\Algorithm\DenyOverrides())
-    ->setId('Policy2')
-    ->addRule($rule1);
+$policy2->setAlgorithm('DenyOverrides')->setId('Policy2')->addRule($rule1);
 
 
 // Create the subject with its own Attribute
