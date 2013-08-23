@@ -58,6 +58,12 @@ class Policy
     private $id = null;
 
     /**
+     * Action instance
+     * @var \Oasisphp\Action
+     */
+    private $action = null;
+
+    /**
      * Add a new Rule to the Policy
      *
      * @param \Oasisphp\Rule $rule Policy rule object
@@ -173,6 +179,26 @@ class Policy
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add an action
+     *
+     * @param \Oasisphp\Action $action Action instance
+     */
+    public function addAction(\Oasisphp\Action $action)
+    {
+        $this->action = $action;
+    }
+
+    /**
+     * Get the current action
+     *
+     * @return \Oasisphp\Action Action instance
+     */
+    public function getAction()
+    {
+        return $this->action;
     }
 
 }
