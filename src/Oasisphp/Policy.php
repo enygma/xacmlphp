@@ -127,11 +127,18 @@ class Policy
     /**
      * Set the combining Algorithm to use for Policy's rule results
      *
-     * @param \Oasisphp\Algorithm $algorithm Algorithm object
+     * @param mixed $algorithm Algorithm name or object instance
      * @return \Oasisphp\Policy instance
      */
-    public function setAlgorithm(\Oasisphp\Algorithm $algorithm)
+    public function setAlgorithm($algorithm)
     {
+        if (is_string($algorithm)) {
+            $algorithmClass = '\\Oasisphp\\Algorithm\\'.$algorithm;
+            if (!class_exists($algorithmClass)) {
+                throw new \InvalidArgumentException('Invalid algorithm '.$algorithm);
+            }
+            $algorithm = new $algorithmClass();
+        }
         $this->algorithm = $algorithm;
         return $this;
     }
