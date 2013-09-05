@@ -13,7 +13,8 @@ abstract class Algorithm
      * Evaluate the set of values for true/false status
      *
      * @param array $results Value set
+     * @param \Xacmlphp\Policy $policy Current policy object [optional]
      * @return boolean Pass/fail evaluation
      */
-    abstract public function evaluate(array $results);
+    abstract public function evaluate(array $results, \Xacmlphp\Policy $policy = null);
 }

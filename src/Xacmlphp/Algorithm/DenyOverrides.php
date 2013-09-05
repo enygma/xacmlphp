@@ -8,7 +8,7 @@ namespace Xacmlphp\Algorithm;
  */
 class DenyOverrides extends \Xacmlphp\Algorithm
 {
-    public function evaluate(array $results)
+    public function evaluate(array $results, \Xacmlphp\Policy $policy = null)
     {
         return (!in_array(false, $results));
     }
