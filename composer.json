@@ -1,5 +1,5 @@
 {
-    "name":"enygma/oasisphp",
+    "name":"enygma/xacml-php",
     "type":"library",
     "description":"A OASIS/XACML library for policy/permissioning",
     "keywords":["oasis", "xacml", "permission", "policy", "rule"],
