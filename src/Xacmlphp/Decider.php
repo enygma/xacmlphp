@@ -9,7 +9,7 @@ namespace Xacmlphp;
  *     - rules
  *     - matches
  *
- * @package Oasisphp
+ * @package Xacmlphp
  */
 class Decider
 {
@@ -23,7 +23,7 @@ class Decider
      * Set the attrbiutes of the current subject
      *
      * @param array $attributes Attribute set
-     * @return \Oasisphp\Decider instance
+     * @return \Xacmlphp\Decider instance
      */
     public function setSubjectAttributes($attributes)
     {
@@ -44,11 +44,11 @@ class Decider
     /**
      * Evaluate the given set of policies against the subject
      *
-     * @param \Oasisphp\Subject $subject Current subject
-     * @param \Oasisphp\PolicySet $policySet Set of policies
+     * @param \Xacmlphp\Subject $subject Current subject
+     * @param \Xacmlphp\PolicySet $policySet Set of policies
      * @return [type]            [description]
      */
-    public function evaluate(\Oasisphp\Subject $subject, \Oasisphp\PolicySet $policySet)
+    public function evaluate(\Xacmlphp\Subject $subject, \Xacmlphp\PolicySet $policySet)
     {
         // get the subject's attributes
         $this->setSubjectAttributes($subject->getAttributes());
@@ -63,7 +63,7 @@ class Decider
             $algorithm = $policySet->getAlgorithm();
             if ($algorithm === null) {
                 // defalt to most secure - deny overrides!
-                $algorithm = new \Oasisphp\Algorithm\DenyOverrides();
+                $algorithm = new \Xacmlphp\Algorithm\DenyOverrides();
                 return $algorithm = $algorithm->evaluate($policyResults);
             }
         }
@@ -124,7 +124,7 @@ class Decider
         foreach ($matches as $match) {
             $designator = $match->getDesignator();
             $value = $match->getValue();
-            $operation = '\\Oasisphp\\Operation\\'.$match->getOperation();
+            $operation = '\\Xacmlphp\\Operation\\'.$match->getOperation();
 
             // see if the subject has the attribute
             foreach ($subjectAttributes as $sAttr) {

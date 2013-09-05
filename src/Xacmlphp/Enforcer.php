@@ -5,20 +5,20 @@ namespace Xacmlphp;
 /**
  * Enforces the checking of the policies at the request point
  *
- * @package Oasisphp
+ * @package Xacmlphp
  */
 class Enforcer
 {
     /**
      * Current decider object
-     * @var \Oasisphp\Decider
+     * @var \Xacmlphp\Decider
      */
     private $decider = null;
 
     /**
      * Construct the object and set the decider if it's given
      *
-     * @param \Oasisphp\Decider $decider Object
+     * @param \Xacmlphp\Decider $decider Object
      */
     public function __construct($decider = null)
     {
@@ -30,10 +30,10 @@ class Enforcer
     /**
      * Set the Decider object
      *
-     * @param \Oasisphp\Decider $decider Decider object
-     * @return \Oasisphp\Enforcer
+     * @param \Xacmlphp\Decider $decider Decider object
+     * @return \Xacmlphp\Enforcer
      */
-    public function setDecider(\Oasisphp\Decider $decider)
+    public function setDecider(\Xacmlphp\Decider $decider)
     {
         $this->decider = $decider;
         return $this;
@@ -42,7 +42,7 @@ class Enforcer
     /**
      * Get the current Decider object
      *
-     * @return \Oasisphp\Decider object
+     * @return \Xacmlphp\Decider object
      */
     public function getDecider()
     {
@@ -52,12 +52,12 @@ class Enforcer
     /**
      * Check to see if the given Subject is authorized for the given Resource
      *
-     * @param \Oasisphp\Subject $subject Subject making request
-     * @param \Oasisphp\Resource $resource Resource being accessed (policies attached)
-     * @param \Oasisphp\Action $action Action instance
+     * @param \Xacmlphp\Subject $subject Subject making request
+     * @param \Xacmlphp\Resource $resource Resource being accessed (policies attached)
+     * @param \Xacmlphp\Action $action Action instance
      * @return boolean Allowed/not allowed status
      */
-    public function isAuthorized(\Oasisphp\Subject $subject, \Oasisphp\Resource $resource, \Oasisphp\Action $action)
+    public function isAuthorized(\Xacmlphp\Subject $subject, \Xacmlphp\Resource $resource, \Xacmlphp\Action $action)
     {
         $decider = $this->getDecider();
         if ($decider === null) {

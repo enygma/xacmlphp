@@ -5,7 +5,7 @@ namespace Xacmlphp;
 /**
  * Abstract class to define a new algorithm
  *
- * @package Oasisphp
+ * @package Xacmlphp
  */
 abstract class Algorithm
 {

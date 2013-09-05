@@ -1,6 +1,6 @@
 <?php
 
-namespace Oasisphp\Attribute;
+namespace Xacmlphp\Attribute;
 
 class Designator
 {

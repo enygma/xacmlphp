@@ -1,8 +1,8 @@
 <?php
 
-namespace Oasisphp\Operation;
+namespace Xacmlphp\Operation;
 
-class StringEqual extends \Oasisphp\Operation
+class StringEqual extends \Xacmlphp\Operation
 {
     public function evaluate()
     {

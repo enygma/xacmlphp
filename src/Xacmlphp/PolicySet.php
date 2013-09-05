@@ -5,7 +5,7 @@ namespace Xacmlphp;
 /**
  * Set of Policies, complete with it's own combining algorithm
  *
- * @package Oasisphp
+ * @package Xacmlphp
  */
 class PolicySet
 {
@@ -17,17 +17,17 @@ class PolicySet
 
     /**
      * Combining algorithm
-     * @var \Oasisphp\Algorithm
+     * @var \Xacmlphp\Algorithm
      */
     private $algorithm = null;
 
     /**
      * Add a new policy to the set
      *
-     * @param \Oasisphp\Policy $policy Policy object
-     * @return \Oasisphp\PolicySet
+     * @param \Xacmlphp\Policy $policy Policy object
+     * @return \Xacmlphp\PolicySet
      */
-    public function addPolicy(\Oasisphp\Policy $policy)
+    public function addPolicy(\Xacmlphp\Policy $policy)
     {
         $this->policies[] = $policy;
         return $this;
@@ -46,10 +46,10 @@ class PolicySet
     /**
      * Set the PolicySet combining algorithm
      *
-     * @param \Oasisphp\Algorithm $algorithm Combining algorithm
-     * @return \Oasisphp\PolicySet
+     * @param \Xacmlphp\Algorithm $algorithm Combining algorithm
+     * @return \Xacmlphp\PolicySet
      */
-    public function setAlgorithm(\Oasisphp\Algorithm $algorithm)
+    public function setAlgorithm(\Xacmlphp\Algorithm $algorithm)
     {
         $this->algorithm = $algorithm;
         return $this;
@@ -58,7 +58,7 @@ class PolicySet
     /**
      * Get the current combining Algorithm
      *
-     * @return \Oasisphp\Algorithm instance
+     * @return \Xacmlphp\Algorithm instance
      */
     public function getAlgorithm()
     {

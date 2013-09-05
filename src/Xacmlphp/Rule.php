@@ -42,7 +42,7 @@ class Rule
 
     /**
      * Combining algorithm for the Rule's matches
-     * @var \Oasisphp\Algorithm instance
+     * @var \Xacmlphp\Algorithm instance
      */
     private $algorithm = null;
 
@@ -50,7 +50,7 @@ class Rule
      * Set the Rule description
      *
      * @param string $description Rule description
-     * @return \Oasisphp\Rule instance
+     * @return \Xacmlphp\Rule instance
      */
     public function setDescription($description)
     {
@@ -72,7 +72,7 @@ class Rule
      * Set the current Rule ID (Ex. "Rule1")
      *
      * @param string $id Rule identifier
-     * @return \Oasisphp\Rule instance
+     * @return \Xacmlphp\Rule instance
      */
     public function setId($id)
     {
@@ -94,7 +94,7 @@ class Rule
      * Set the Rule target path
      *
      * @param string $target Target path
-     * @return \Oasisphp\Rule instance
+     * @return \Xacmlphp\Rule instance
      */
     public function setTarget($target)
     {
@@ -117,7 +117,7 @@ class Rule
      *
      * @param string $effect Rule effect
      * @throws \InvalidArgumentException If invalid effect option
-     * @return \Oasisphp\Rule instance
+     * @return \Xacmlphp\Rule instance
      */
     public function setEffect($effect)
     {
@@ -142,10 +142,10 @@ class Rule
     /**
      * Set the Rule combining algorithm
      *
-     * @param \Oasisphp\Algorithm $algorithm Algorithm instance
-     * @return \Oasisphp\Rule instance
+     * @param \Xacmlphp\Algorithm $algorithm Algorithm instance
+     * @return \Xacmlphp\Rule instance
      */
-    public function setAlgorithm(\Oasisphp\Algorithm $algorithm)
+    public function setAlgorithm(\Xacmlphp\Algorithm $algorithm)
     {
         $this->algorithm = $algorithm;
         return $this;
@@ -154,7 +154,7 @@ class Rule
     /**
      * Get the Rule's combining algorithm
      *
-     * @return \Oasisphp\Algorithm instance
+     * @return \Xacmlphp\Algorithm instance
      */
     public function getAlgorithm()
     {

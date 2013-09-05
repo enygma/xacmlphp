@@ -5,7 +5,7 @@ namespace Xacmlphp;
 /**
  * Subject of current evaluation
  *
- * @package Oasisphp
+ * @package Xacmlphp
  */
 class Subject
 {
@@ -18,10 +18,10 @@ class Subject
     /**
      * Add a new Attribute
      *
-     * @param \Oasisphp\Attribute $attribute instance
-     * @return \Oasisphp\Subject instance
+     * @param \Xacmlphp\Attribute $attribute instance
+     * @return \Xacmlphp\Subject instance
      */
-    public function addAttribute(\Oasisphp\Attribute $attribute)
+    public function addAttribute(\Xacmlphp\Attribute $attribute)
     {
         $this->attributes[] = $attribute;
         return $this;

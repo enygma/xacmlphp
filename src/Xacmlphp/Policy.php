@@ -5,7 +5,7 @@ namespace Xacmlphp;
 /**
  * Policy definition
  *
- * @package Oasisphp
+ * @package Xacmlphp
  */
 class Policy
 {
@@ -23,7 +23,7 @@ class Policy
 
     /**
      * Combining algorithm
-     * @var \Oasisphp\Algorithm
+     * @var \Xacmlphp\Algorithm
      */
     private $algorithm = null;
 
@@ -59,17 +59,17 @@ class Policy
 
     /**
      * Action instance
-     * @var \Oasisphp\Action
+     * @var \Xacmlphp\Action
      */
     private $action = null;
 
     /**
      * Add a new Rule to the Policy
      *
-     * @param \Oasisphp\Rule $rule Policy rule object
-     * @return \Oasisphp\Policy instance
+     * @param \Xacmlphp\Rule $rule Policy rule object
+     * @return \Xacmlphp\Policy instance
      */
-    public function addRule(\Oasisphp\Rule $rule)
+    public function addRule(\Xacmlphp\Rule $rule)
     {
         $this->rules[] = $rule;
         return $this;
@@ -90,7 +90,7 @@ class Policy
      *
      * @param string $target Target path of related
      *   resource/action/environment
-     * @return \Oasisphp\Policy instance
+     * @return \Xacmlphp\Policy instance
      */
     public function setTarget($target)
     {
@@ -112,7 +112,7 @@ class Policy
      * Set the Policy description
      *
      * @param string $description
-     * @return \Oasisphp\Policy instance
+     * @return \Xacmlphp\Policy instance
      */
     public function setDescription($description)
     {
@@ -134,12 +134,12 @@ class Policy
      * Set the combining Algorithm to use for Policy's rule results
      *
      * @param mixed $algorithm Algorithm name or object instance
-     * @return \Oasisphp\Policy instance
+     * @return \Xacmlphp\Policy instance
      */
     public function setAlgorithm($algorithm)
     {
         if (is_string($algorithm)) {
-            $algorithmClass = '\\Oasisphp\\Algorithm\\'.$algorithm;
+            $algorithmClass = '\\Xacmlphp\\Algorithm\\'.$algorithm;
             if (!class_exists($algorithmClass)) {
                 throw new \InvalidArgumentException('Invalid algorithm '.$algorithm);
             }
@@ -152,7 +152,7 @@ class Policy
     /**
      * Get the current combining Algorithm
      *
-     * @return \Oasisphp\Algorithm Combining algorithm
+     * @return \Xacmlphp\Algorithm Combining algorithm
      */
     public function getAlgorithm()
     {
@@ -184,9 +184,9 @@ class Policy
     /**
      * Add an action
      *
-     * @param \Oasisphp\Action $action Action instance
+     * @param \Xacmlphp\Action $action Action instance
      */
-    public function addAction(\Oasisphp\Action $action)
+    public function addAction(\Xacmlphp\Action $action)
     {
         $this->action = $action;
     }
@@ -194,7 +194,7 @@ class Policy
     /**
      * Get the current action
      *
-     * @return \Oasisphp\Action Action instance
+     * @return \Xacmlphp\Action Action instance
      */
     public function getAction()
     {

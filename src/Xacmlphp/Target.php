@@ -5,7 +5,7 @@ namespace Xacmlphp;
 /**
  * Rule target containing Match set
  *
- * @package Oasisphp
+ * @package Xacmlphp
  */
 class Target
 {
@@ -18,10 +18,10 @@ class Target
     /**
      * Add a new Match to the Target set
      *
-     * @param \Oasisphp\Match $match Match instance
-     * @return \Oasisphp\Target
+     * @param \Xacmlphp\Match $match Match instance
+     * @return \Xacmlphp\Target
      */
-    public function addMatch(\Oasisphp\Match $match)
+    public function addMatch(\Xacmlphp\Match $match)
     {
         $this->matches[] = $match;
         return $this;

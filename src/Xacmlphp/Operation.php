@@ -5,7 +5,7 @@ namespace Xacmlphp;
 /**
  * Matching operation definition
  *
- * @package Oasisphp
+ * @package Xacmlphp
  */
 abstract class Operation
 {
@@ -58,7 +58,7 @@ abstract class Operation
      * Set the second property value
      *
      * @param mixed $value Property #2 value
-     * @return \Oasisphp\Operation instance
+     * @return \Xacmlphp\Operation instance
      */
     public function setProperty2($value)
     {

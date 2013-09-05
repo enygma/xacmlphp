@@ -5,7 +5,7 @@ namespace Xacmlphp;
 /**
  * Attribute of an object (resource, subject, etc...)
  *
- * @pacakge Oasisphp
+ * @pacakge Xacmlphp
  */
 class Attribute
 {
@@ -46,7 +46,7 @@ class Attribute
      * Set the name for the attribute
      *
      * @param string $name Name for attribute
-     * @return \Oasisphp\Attribute instance
+     * @return \Xacmlphp\Attribute instance
      */
     public function setName($name)
     {
@@ -68,7 +68,7 @@ class Attribute
      * Set the attribute value
      *
      * @param mixed $value Attribute value
-     * @return \Oasisphp\Attribute instance
+     * @return \Xacmlphp\Attribute instance
      */
     public function setValue($value)
     {

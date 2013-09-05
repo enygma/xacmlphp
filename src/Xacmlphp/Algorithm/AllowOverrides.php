@@ -1,12 +1,12 @@
 <?php
 
-namespace Oasisphp\Algorithm;
+namespace Xacmlphp\Algorithm;
 
 /**
  * According to "Deny Overrides" if any policy in the set
  * fails, return DENY
  */
-class AllowOverrides extends \Oasisphp\Algorithm
+class AllowOverrides extends \Xacmlphp\Algorithm
 {
     public function evaluate(array $results)
     {

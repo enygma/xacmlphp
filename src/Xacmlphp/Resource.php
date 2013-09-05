@@ -20,7 +20,7 @@ class Resource
      * Set the current Resource target
      *
      * @param string $target Resource target
-     * @return \Oasisphp\Resource instance
+     * @return \Xacmlphp\Resource instance
      */
     public function setTarget($target)
     {
@@ -41,13 +41,13 @@ class Resource
     /**
      * Add a new policy to the Resource
      *
-     * @param \Oasisphp\Policy $policy Policy instance
-     * @return \Oasisphp\Resource instance
+     * @param \Xacmlphp\Policy $policy Policy instance
+     * @return \Xacmlphp\Resource instance
      */
-    public function addPolicy(\Oasisphp\Policy $policy)
+    public function addPolicy(\Xacmlphp\Policy $policy)
     {
         if ($this->policySet === null) {
-            $this->policySet = new \Oasisphp\PolicySet();
+            $this->policySet = new \Xacmlphp\PolicySet();
         }
         $this->policySet->addPolicy($policy);
         return $this;
@@ -66,9 +66,9 @@ class Resource
     /**
      * Add a full PolicySet to Resource (overwrites currently set Policies)
      *
-     * @param \Oasisphp\PolicySet $policySet Set of Policies
+     * @param \Xacmlphp\PolicySet $policySet Set of Policies
      */
-    public function addPolicySet(\Oasisphp\PolicySet $policySet)
+    public function addPolicySet(\Xacmlphp\PolicySet $policySet)
     {
         $this->policySet = $policySet;
         return $this;

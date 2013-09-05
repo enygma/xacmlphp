@@ -62,7 +62,7 @@ class Match
      * Set the Match ID (Ex. "TestMatch1")
      *
      * @param string $id Match identifier
-     * @return \Oasisphp\Match instance
+     * @return \Xacmlphp\Match instance
      */
     public function setId($id)
     {
@@ -83,9 +83,9 @@ class Match
     /**
      * Add a match Attribute
      *
-     * @param \Oasisphp\Attribute $attribute New attribute
+     * @param \Xacmlphp\Attribute $attribute New attribute
      */
-    public function addAttribute(\Oasisphp\Attribute $attribute)
+    public function addAttribute(\Xacmlphp\Attribute $attribute)
     {
         $this->attributes[] = $attribute;
         return $this;
@@ -105,7 +105,7 @@ class Match
      * Set the current designator (Property name/path to match)
      *
      * @param string $designator Designator name
-     * @return \Oasisphp\Match instance
+     * @return \Xacmlphp\Match instance
      */
     public function setDesignator($designator)
     {
@@ -127,7 +127,7 @@ class Match
      * Set the current evaluation option for the Match
      *
      * @param string $operation Evaluation type
-     * @return \Oasisphp\Match instance
+     * @return \Xacmlphp\Match instance
      */
     public function setOperation($operation)
     {
@@ -149,7 +149,7 @@ class Match
      * Set the value to use for the matching
      *
      * @param mixed $value Match value
-     * @return \Oasisphp\Match instance
+     * @return \Xacmlphp\Match instance
      */
     public function setValue($value)
     {
