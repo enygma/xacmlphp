@@ -84,7 +84,7 @@ class Decider
             $policyResults = $this->handleRules($rules);
 
             $algorithm = $policy->getAlgorithm();
-            $results[$policy->getId()] = $algorithm->evaluate($policyResults);
+            $results[$policy->getId()] = $algorithm->evaluate($policyResults, $policy);
         }
 
         return $results;
