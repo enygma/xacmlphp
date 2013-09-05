@@ -40,21 +40,21 @@ passed in to the Enforcer to check if they're allowed or not:
 
 require_once 'vendor/autoload.php';
 
-$enforcer = new \Oasisphp\Enforcer();
+$enforcer = new \Xacmlphp\Enforcer();
 
-$decider = new \Oasisphp\Decider();
+$decider = new \Xacmlphp\Decider();
 $enforcer->setDecider($decider);
 
 // Create some Matches
-$match1 = new \Oasisphp\Match('StringEqual', 'property1', 'TestMatch1', 'test');
-$match2 = new \Oasisphp\Match('StringEqual', 'property1', 'TestMatch2', 'test1234');
+$match1 = new \Xacmlphp\Match('StringEqual', 'property1', 'TestMatch1', 'test');
+$match2 = new \Xacmlphp\Match('StringEqual', 'property1', 'TestMatch2', 'test1234');
 
 // Create a Target container for our Matches
-$target = new \Oasisphp\Target();
+$target = new \Xacmlphp\Target();
 $target->addMatches(array($match1, $match2));
 
 // Make a new Rule and add the Target to it
-$rule1 = new \Oasisphp\Rule();
+$rule1 = new \Xacmlphp\Rule();
 $rule1->setTarget($target)
     ->setId('TestRule')
     ->setEffect('Permit')
@@ -62,24 +62,24 @@ $rule1->setTarget($target)
         'Test to see if there is an attribute on the subject'
         .'that exactly matches the word "test"'
     )
-    ->setAlgorithm(new \Oasisphp\Algorithm\DenyOverrides());
+    ->setAlgorithm(new \Xacmlphp\Algorithm\DenyOverrides());
 
 // Make two new policies and add the Rule to it (with our Match)
-$policy1 = new \Oasisphp\Policy();
+$policy1 = new \Xacmlphp\Policy();
 $policy1->setAlgorithm('AllowOverrides')->setId('Policy1')->addRule($rule1);
 
-$policy2 = new \Oasisphp\Policy();
+$policy2 = new \Xacmlphp\Policy();
 $policy2->setAlgorithm('DenyOverrides')->setId('Policy2')->addRule($rule1);
 
 
 // Create the subject with its own Attribute
-$subject = new \Oasisphp\Subject();
+$subject = new \Xacmlphp\Subject();
 $subject->addAttribute(
-    new \Oasisphp\Attribute('property1', 'test')
+    new \Xacmlphp\Attribute('property1', 'test')
 );
 
 // Link the Policies to the Resource
-$resource = new \Oasisphp\Resource();
+$resource = new \Xacmlphp\Resource();
 $resource
     ->addPolicy($policy1)
     ->addPolicy($policy2);
