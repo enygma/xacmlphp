@@ -1,6 +1,6 @@
 <?php
 
-namespace Oasisphp;
+namespace Xacmlphp;
 
 /**
  * Attribute of an object (resource, subject, etc...)

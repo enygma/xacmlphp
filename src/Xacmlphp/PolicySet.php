@@ -1,6 +1,6 @@
 <?php
 
-namespace Oasisphp;
+namespace Xacmlphp;
 
 /**
  * Set of Policies, complete with it's own combining algorithm

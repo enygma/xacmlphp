@@ -1,6 +1,6 @@
 <?php
 
-namespace Oasisphp;
+namespace Xacmlphp;
 
 /**
  * Abstract class to define a new algorithm

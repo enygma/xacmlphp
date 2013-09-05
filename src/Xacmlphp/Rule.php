@@ -1,6 +1,6 @@
 <?php
 
-namespace Oasisphp;
+namespace Xacmlphp;
 
 class Rule
 {
