@@ -124,16 +124,18 @@ class Decider
         foreach ($matches as $match) {
             $designator = $match->getDesignator();
             $value = $match->getValue();
-            $operation = '\\Xacmlphp\\Operation\\'.$match->getOperation();
+            $operation = '\\Xacmlphp\\Operation\\' . $match->getOperation();
 
             // see if the subject has the attribute
             foreach ($subjectAttributes as $sAttr) {
                 $sDesignator = $sAttr->getName();
-                $sValue = $sAttr->getValue();
-
-                $op = new $operation($value, $sValue);
-                $results[$match->getId()] = $op->evaluate();
+                if ($designator == $sDesignator) {
+                    $sValue = $sAttr->getValue();
+                    $op = new $operation($value, $sValue);
+                    $results[$match->getId()] = $op->evaluate();
+                }
             }
+
         }
         return $results;
     }
