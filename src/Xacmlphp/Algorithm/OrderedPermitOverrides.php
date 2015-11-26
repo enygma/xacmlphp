@@ -13,7 +13,7 @@ class OrderedPermitOverrides extends \Xacmlphp\Algorithm
         $rules = $policy->getRules();
         if (count($rules) > 0) {
             foreach ($rules as $rule) {
-                $id = $rule->getId();
+                $firstRuleId = $rule->getId();
                 if (array_key_exists($firstRuleId, $results) && $results[$firstRuleId] == true) {
                     return true;
                 }

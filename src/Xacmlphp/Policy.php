@@ -78,7 +78,7 @@ class Policy
     /**
      * Get the current rule set
      *
-     * @return array Rule set
+     * @return Rule[] set
      */
     public function getRules()
     {
