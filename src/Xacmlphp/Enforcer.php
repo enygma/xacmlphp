@@ -55,7 +55,7 @@ class Enforcer
      * Check to see if the given Subject is authorized for the given Resource
      *
      * @param Subject $subject Subject making request
-     * @param Resource $resource Resource being accessed (policies attached)
+     * @param \Xacmlphp\Resource $resource Resource being accessed (policies attached)
      * @param Action $action Action instance
      *
      * @return bool Allowed/not allowed status

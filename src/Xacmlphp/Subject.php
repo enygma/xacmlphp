@@ -38,4 +38,12 @@ class Subject
     {
         return $this->attributes;
     }
+
+    /**
+     * Empty current attribute list
+     */
+    public function clearAttributes()
+    {
+        $this->attributes = array();
+    }
 }

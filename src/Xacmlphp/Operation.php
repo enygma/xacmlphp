@@ -16,7 +16,7 @@ abstract class Operation
     protected $property1 = null;
 
     /**
-     * Perperty #2 to evaluate
+     * Property #2 to evaluate
      * @var mixed
      */
     protected $property2 = null;

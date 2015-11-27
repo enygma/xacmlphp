@@ -21,7 +21,7 @@ class Decider
     private $subjectAttributes = array();
 
     /**
-     * Set the attrbiutes of the current subject
+     * Set the attributes of the current subject
      *
      * @param array $attributes Attribute set
      *

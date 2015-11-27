@@ -180,7 +180,7 @@ class Policy
      *
      * @param string $id Policy ID
      *
-     * @return string Policy ID
+     * @return Policy
      */
     public function setId($id)
     {

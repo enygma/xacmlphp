@@ -15,7 +15,7 @@ abstract class Algorithm
      * @param array $results Value set
      * @param Policy $policy Current policy object [optional]
      *
-*@return boolean Pass/fail evaluation
+     * @return boolean Pass/fail evaluation
      */
     abstract public function evaluate(array $results, Policy $policy = null);
 }
