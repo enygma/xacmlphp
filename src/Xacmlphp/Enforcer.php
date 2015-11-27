@@ -11,14 +11,15 @@ class Enforcer
 {
     /**
      * Current decider object
-     * @var \Xacmlphp\Decider
+     *
+     * @var Decider
      */
     private $decider = null;
 
     /**
      * Construct the object and set the decider if it's given
      *
-     * @param \Xacmlphp\Decider $decider Object
+     * @param Decider $decider Object
      */
     public function __construct($decider = null)
     {
@@ -30,10 +31,11 @@ class Enforcer
     /**
      * Set the Decider object
      *
-     * @param \Xacmlphp\Decider $decider Decider object
+     * @param Decider $decider Decider object
+     *
      * @return \Xacmlphp\Enforcer
      */
-    public function setDecider(\Xacmlphp\Decider $decider)
+    public function setDecider(Decider $decider)
     {
         $this->decider = $decider;
         return $this;
@@ -42,7 +44,7 @@ class Enforcer
     /**
      * Get the current Decider object
      *
-     * @return \Xacmlphp\Decider object
+     * @return Decider object
      */
     public function getDecider()
     {
@@ -52,12 +54,13 @@ class Enforcer
     /**
      * Check to see if the given Subject is authorized for the given Resource
      *
-     * @param \Xacmlphp\Subject $subject Subject making request
-     * @param \Xacmlphp\Resource $resource Resource being accessed (policies attached)
-     * @param \Xacmlphp\Action $action Action instance
-     * @return boolean Allowed/not allowed status
+     * @param Subject $subject Subject making request
+     * @param Resource $resource Resource being accessed (policies attached)
+     * @param Action $action Action instance
+     *
+     * @return bool Allowed/not allowed status
      */
-    public function isAuthorized(\Xacmlphp\Subject $subject, \Xacmlphp\Resource $resource, \Xacmlphp\Action $action)
+    public function isAuthorized(Subject $subject, Resource $resource, Action $action)
     {
         $decider = $this->getDecider();
         if ($decider === null) {
@@ -66,6 +69,6 @@ class Enforcer
 
         $policies = $resource->getPolicies();
 
-        return $decider->evaluate($subject, $policies);
+        return $decider->evaluate($subject, $policies, $action);
     }
 }

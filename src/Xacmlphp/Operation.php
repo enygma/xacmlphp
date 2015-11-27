@@ -37,6 +37,8 @@ abstract class Operation
      * Set the first property to evaluate
      *
      * @param mixed $value Property value
+     *
+     * @return $this
      */
     public function setProperty1($value)
     {

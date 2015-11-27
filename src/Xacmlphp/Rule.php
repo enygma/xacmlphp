@@ -6,43 +6,50 @@ class Rule
 {
     /**
      * Target path for Rule
+     *
      * @var string
      */
     private $target = null;
 
     /**
      * Rule ID (Ex. "Rule1")
+     *
      * @var string
      */
     private $id = null;
 
     /**
      * Brief Rule description
+     *
      * @var string
      */
     private $description = null;
 
     /**
      * Rule effect (can only be "PERMIT" or "DENY")
+     *
      * @var string
      */
     private $effect = null;
 
     /**
      * Obligations to follow after Rule is complete
+     *
      * @var array
      */
     private $obligations = array();
 
     /**
      * Advice to conditionally follow after rule is complete
+     *
      * @var array
      */
     private $advice = array();
 
     /**
      * Combining algorithm for the Rule's matches
-     * @var \Xacmlphp\Algorithm instance
+     *
+     * @var Algorithm instance
      */
     private $algorithm = null;
 
@@ -50,6 +57,7 @@ class Rule
      * Set the Rule description
      *
      * @param string $description Rule description
+     *
      * @return \Xacmlphp\Rule instance
      */
     public function setDescription($description)
@@ -72,6 +80,7 @@ class Rule
      * Set the current Rule ID (Ex. "Rule1")
      *
      * @param string $id Rule identifier
+     *
      * @return \Xacmlphp\Rule instance
      */
     public function setId($id)
@@ -94,6 +103,7 @@ class Rule
      * Set the Rule target path
      *
      * @param string $target Target path
+     *
      * @return \Xacmlphp\Rule instance
      */
     public function setTarget($target)
@@ -105,7 +115,7 @@ class Rule
     /**
      * Get the current Rule target
      *
-     * @return string Target path
+     * @return Target path
      */
     public function getTarget()
     {
@@ -116,6 +126,7 @@ class Rule
      * Set the Rule effect (either "PERMIT" or "DENY")
      *
      * @param string $effect Rule effect
+     *
      * @throws \InvalidArgumentException If invalid effect option
      * @return \Xacmlphp\Rule instance
      */
@@ -123,7 +134,7 @@ class Rule
     {
         $effect = strtoupper($effect);
         if ($effect !== "PERMIT" && $effect !== "DENY") {
-            throw new \InvalidArgumentException('Invalid effect setting '.$effect);
+            throw new \InvalidArgumentException('Invalid effect setting ' . $effect);
         }
         $this->effect = $effect;
         return $this;
@@ -142,10 +153,11 @@ class Rule
     /**
      * Set the Rule combining algorithm
      *
-     * @param \Xacmlphp\Algorithm $algorithm Algorithm instance
+     * @param Algorithm $algorithm Algorithm instance
+     *
      * @return \Xacmlphp\Rule instance
      */
-    public function setAlgorithm(\Xacmlphp\Algorithm $algorithm)
+    public function setAlgorithm(Algorithm $algorithm)
     {
         $this->algorithm = $algorithm;
         return $this;
@@ -154,7 +166,7 @@ class Rule
     /**
      * Get the Rule's combining algorithm
      *
-     * @return \Xacmlphp\Algorithm instance
+     * @return Algorithm instance
      */
     public function getAlgorithm()
     {

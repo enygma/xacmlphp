@@ -5,12 +5,12 @@ namespace Xacmlphp;
 /**
  * Attribute of an object (resource, subject, etc...)
  *
- * @pacakge Xacmlphp
+ * @package Xacmlphp
  */
 class Attribute
 {
     /**
-     * Atrribute name
+     * Attribute name
      * @var string
      */
     private $name = null;
@@ -24,7 +24,7 @@ class Attribute
     /**
      * Construct the object and set the name/value
      *
-     * @param string $name Attrbiute name
+     * @param string $name Attribute name
      * @param mixed $value Attribute value
      */
     public function __construct($name, $value)

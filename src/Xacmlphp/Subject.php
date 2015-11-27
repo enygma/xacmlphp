@@ -11,6 +11,7 @@ class Subject
 {
     /**
      * Attribute set for subject
+     *
      * @var array
      */
     private $attributes = array();
@@ -18,10 +19,11 @@ class Subject
     /**
      * Add a new Attribute
      *
-     * @param \Xacmlphp\Attribute $attribute instance
+     * @param Attribute $attribute instance
+     *
      * @return \Xacmlphp\Subject instance
      */
-    public function addAttribute(\Xacmlphp\Attribute $attribute)
+    public function addAttribute(Attribute $attribute)
     {
         $this->attributes[] = $attribute;
         return $this;

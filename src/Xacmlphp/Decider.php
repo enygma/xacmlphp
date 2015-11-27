@@ -15,6 +15,7 @@ class Decider
 {
     /**
      * Set of subject attributes
+     *
      * @var array
      */
     private $subjectAttributes = array();
@@ -23,6 +24,7 @@ class Decider
      * Set the attrbiutes of the current subject
      *
      * @param array $attributes Attribute set
+     *
      * @return \Xacmlphp\Decider instance
      */
     public function setSubjectAttributes($attributes)
@@ -34,7 +36,7 @@ class Decider
     /**
      * Get the current subject's attributes
      *
-     * @return array Attribute set
+     * @return Attribute[] set of attributes
      */
     public function getSubjectAttributes()
     {
@@ -44,11 +46,13 @@ class Decider
     /**
      * Evaluate the given set of policies against the subject
      *
-     * @param \Xacmlphp\Subject $subject Current subject
-     * @param \Xacmlphp\PolicySet $policySet Set of policies
-     * @return [type]            [description]
+     * @param Subject $subject Current subject
+     * @param PolicySet $policySet Set of policies
+     * @param Action $action
+     *
+     * @return bool
      */
-    public function evaluate(\Xacmlphp\Subject $subject, \Xacmlphp\PolicySet $policySet)
+    public function evaluate(Subject $subject, PolicySet $policySet, Action $action)
     {
         // get the subject's attributes
         $this->setSubjectAttributes($subject->getAttributes());
@@ -62,17 +66,18 @@ class Decider
             // if we have one...
             $algorithm = $policySet->getAlgorithm();
             if ($algorithm === null) {
-                // defalt to most secure - deny overrides!
-                $algorithm = new \Xacmlphp\Algorithm\DenyOverrides();
-                return $algorithm = $algorithm->evaluate($policyResults);
+                // default to most secure - deny overrides!
+                $algorithm = new Algorithm\DenyOverrides();
             }
+            return $algorithm = $algorithm->evaluate($policyResults);
         }
     }
 
     /**
      * Evaluate the policies for pass/fail status based on given algorithm
      *
-     * @param array $policies Policies to evaluate
+     * @param \Xacmlphp\Policy[] $policies to evaluate
+     *
      * @return array Policy pass/fail results
      */
     public function handlePolicies(array $policies)
@@ -93,7 +98,8 @@ class Decider
     /**
      * Handle the rules inside of policies for pass/fail status
      *
-     * @param array $rules Set of rules to evaluate
+     * @param \Xacmlphp\Rule[] $rules Set of rules to evaluate
+     *
      * @return array Results from rules evaluation
      */
     public function handleRules(array $rules)
@@ -113,7 +119,8 @@ class Decider
     /**
      * Handle the evaluation of matches (inside rules) for pass/fail status
      *
-     * @param array $matches Set of matches to evaluate
+     * @param \Xacmlphp\Match[] $matches Set of matches to evaluate
+     *
      * @return array Set of match attribute check results
      */
     public function handleMatches(array $matches)
@@ -131,6 +138,7 @@ class Decider
                 $sDesignator = $sAttr->getName();
                 if ($designator == $sDesignator) {
                     $sValue = $sAttr->getValue();
+                    /** @var \Xacmlphp\Operation $op */
                     $op = new $operation($value, $sValue);
                     $results[$match->getId()] = $op->evaluate();
                 }

@@ -6,12 +6,14 @@ class Resource
 {
     /**
      * Resource target path
+     *
      * @var string
      */
     private $target = null;
 
     /**
      * Set of policies applying to the Resource
+     *
      * @var array
      */
     private $policySet = null;
@@ -20,6 +22,7 @@ class Resource
      * Set the current Resource target
      *
      * @param string $target Resource target
+     *
      * @return \Xacmlphp\Resource instance
      */
     public function setTarget($target)
@@ -41,13 +44,14 @@ class Resource
     /**
      * Add a new policy to the Resource
      *
-     * @param \Xacmlphp\Policy $policy Policy instance
+     * @param Policy $policy Policy instance
+     *
      * @return \Xacmlphp\Resource instance
      */
-    public function addPolicy(\Xacmlphp\Policy $policy)
+    public function addPolicy(Policy $policy)
     {
         if ($this->policySet === null) {
-            $this->policySet = new \Xacmlphp\PolicySet();
+            $this->policySet = new PolicySet();
         }
         $this->policySet->addPolicy($policy);
         return $this;
@@ -56,7 +60,7 @@ class Resource
     /**
      * Get the current set of policies
      *
-     * @return array Policy set
+     * @return PolicySet set
      */
     public function getPolicies()
     {
@@ -66,9 +70,11 @@ class Resource
     /**
      * Add a full PolicySet to Resource (overwrites currently set Policies)
      *
-     * @param \Xacmlphp\PolicySet $policySet Set of Policies
+     * @param PolicySet $policySet Set of Policies
+     *
+     * @return $this
      */
-    public function addPolicySet(\Xacmlphp\PolicySet $policySet)
+    public function addPolicySet(PolicySet $policySet)
     {
         $this->policySet = $policySet;
         return $this;
