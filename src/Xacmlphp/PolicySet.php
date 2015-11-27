@@ -12,7 +12,7 @@ class PolicySet
     /**
      * Set of Policies
      *
-     * @var array
+     * @var Policy[]
      */
     private $policies = array();
 
@@ -39,7 +39,7 @@ class PolicySet
     /**
      * Get all current policies
      *
-     * @return array Set of policies
+     * @return Policy[] Set of policies
      */
     public function getPolicies()
     {

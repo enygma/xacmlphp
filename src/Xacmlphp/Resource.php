@@ -14,7 +14,7 @@ class Resource
     /**
      * Set of policies applying to the Resource
      *
-     * @var Policy[]
+     * @var PolicySet
      */
     private $policySet = null;
 
