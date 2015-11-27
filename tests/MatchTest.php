@@ -17,6 +17,8 @@ class MatchTest extends PHPUnit_Framework_TestCase
         $obj = new \Xacmlphp\Match('StringEqual', 'foo', 'Foo match', 'bar');
         $obj->addAttribute(new \Xacmlphp\Attribute('foo', 'bar'));
         $this->assertCount(1, $obj->getAttributes());
-        $this->assertInstanceOf('\\Xacmlphp\\Attribute', array_pop($obj->getAttributes()));
+        foreach ($obj->getAttributes() as $attribute) {
+            $this->assertInstanceOf('\\Xacmlphp\\Attribute', $attribute);
+        }
     }
 }

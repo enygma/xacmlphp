@@ -17,7 +17,9 @@ class PolicySetTest extends PHPUnit_Framework_TestCase
         $this->assertCount(0, $this->policySet->getPolicies());
         $this->policySet->addPolicy($policy);
         $this->assertCount(1, $this->policySet->getPolicies());
-        $this->assertInstanceOf('\\Xacmlphp\\Policy', array_pop($this->policySet->getPolicies()));
+        foreach ($this->policySet->getPolicies() as $policy) {
+            $this->assertInstanceOf('\\Xacmlphp\\Policy', $policy);
+        }
     }
 
     public function testAlgorithm()

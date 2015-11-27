@@ -71,6 +71,8 @@ class PolicyTest extends PHPUnit_Framework_TestCase
         $rule = new \Xacmlphp\Rule();
         $this->policy->addRule($rule);
         $this->assertCount(1, $this->policy->getRules());
-        $this->assertInstanceOf('\\Xacmlphp\\Rule', array_pop($this->policy->getRules()));
+        foreach ($this->policy->getRules() as $rule) {
+            $this->assertInstanceOf('\\Xacmlphp\\Rule', $rule);
+        }
     }
 }
