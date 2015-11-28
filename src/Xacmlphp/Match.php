@@ -84,6 +84,8 @@ class Match
      * Add a match Attribute
      *
      * @param \Xacmlphp\Attribute $attribute New attribute
+     *
+     * @return $this
      */
     public function addAttribute(\Xacmlphp\Attribute $attribute)
     {

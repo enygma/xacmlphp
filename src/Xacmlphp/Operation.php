@@ -16,7 +16,7 @@ abstract class Operation
     protected $property1 = null;
 
     /**
-     * Perperty #2 to evaluate
+     * Property #2 to evaluate
      * @var mixed
      */
     protected $property2 = null;
@@ -37,6 +37,8 @@ abstract class Operation
      * Set the first property to evaluate
      *
      * @param mixed $value Property value
+     *
+     * @return $this
      */
     public function setProperty1($value)
     {

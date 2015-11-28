@@ -11,65 +11,75 @@ class Policy
 {
     /**
      * Set of policy rules
+     *
      * @var array
      */
     private $rules = array();
 
     /**
      * Policy target
+     *
      * @var Resource/action/environment it applies to
      */
     private $target = null;
 
     /**
      * Combining algorithm
-     * @var \Xacmlphp\Algorithm
+     *
+     * @var Algorithm
      */
     private $algorithm = null;
 
     /**
      * Version of the policy
+     *
      * @var string
      */
     private $version = '1.0';
 
     /**
      * Obligations to perform after match
+     *
      * @var array
      */
     private $obligations = array();
 
     /**
      * Conditional advice to follow after match
+     *
      * @var array
      */
     private $advice = array();
 
     /**
      * Description of the policy
+     *
      * @var string
      */
     private $description = '';
 
     /**
      * Policy ID (Ex. "Policy1")
+     *
      * @var string
      */
     private $id = null;
 
     /**
      * Action instance
-     * @var \Xacmlphp\Action
+     *
+     * @var Action
      */
     private $action = null;
 
     /**
      * Add a new Rule to the Policy
      *
-     * @param \Xacmlphp\Rule $rule Policy rule object
+     * @param Rule $rule Policy rule object
+     *
      * @return \Xacmlphp\Policy instance
      */
-    public function addRule(\Xacmlphp\Rule $rule)
+    public function addRule(Rule $rule)
     {
         $this->rules[] = $rule;
         return $this;
@@ -90,6 +100,7 @@ class Policy
      *
      * @param string $target Target path of related
      *   resource/action/environment
+     *
      * @return \Xacmlphp\Policy instance
      */
     public function setTarget($target)
@@ -112,6 +123,7 @@ class Policy
      * Set the Policy description
      *
      * @param string $description
+     *
      * @return \Xacmlphp\Policy instance
      */
     public function setDescription($description)
@@ -134,25 +146,29 @@ class Policy
      * Set the combining Algorithm to use for Policy's rule results
      *
      * @param mixed $algorithm Algorithm name or object instance
+     *
      * @return \Xacmlphp\Policy instance
      */
     public function setAlgorithm($algorithm)
     {
         if (is_string($algorithm)) {
-            $algorithmClass = '\\Xacmlphp\\Algorithm\\'.$algorithm;
+            $algorithmClass = '\\Xacmlphp\\Algorithm\\' . $algorithm;
             if (!class_exists($algorithmClass)) {
-                throw new \InvalidArgumentException('Invalid algorithm '.$algorithm);
+                throw new \InvalidArgumentException('Invalid algorithm ' . $algorithm);
             }
             $algorithm = new $algorithmClass();
+        } elseif (!($algorithm instanceof Algorithm)) {
+            throw new \InvalidArgumentException('Algorithm must be instance of \Xacmlphp\Algorithm');
         }
         $this->algorithm = $algorithm;
+
         return $this;
     }
 
     /**
      * Get the current combining Algorithm
      *
-     * @return \Xacmlphp\Algorithm Combining algorithm
+     * @return Algorithm Combining algorithm
      */
     public function getAlgorithm()
     {
@@ -160,10 +176,11 @@ class Policy
     }
 
     /**
-     * Set the Polidy ID
+     * Set the Policy ID
      *
      * @param string $id Policy ID
-     * @return string Policy ID
+     *
+     * @return Policy
      */
     public function setId($id)
     {
@@ -184,9 +201,9 @@ class Policy
     /**
      * Add an action
      *
-     * @param \Xacmlphp\Action $action Action instance
+     * @param Action $action Action instance
      */
-    public function addAction(\Xacmlphp\Action $action)
+    public function addAction(Action $action)
     {
         $this->action = $action;
     }
@@ -194,7 +211,7 @@ class Policy
     /**
      * Get the current action
      *
-     * @return \Xacmlphp\Action Action instance
+     * @return Action Action instance
      */
     public function getAction()
     {

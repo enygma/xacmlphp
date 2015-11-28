@@ -11,6 +11,7 @@ class Target
 {
     /**
      * Set of Matches for a Target
+     *
      * @var array
      */
     private $matches = array();
@@ -18,10 +19,11 @@ class Target
     /**
      * Add a new Match to the Target set
      *
-     * @param \Xacmlphp\Match $match Match instance
+     * @param Match $match Match instance
+     *
      * @return \Xacmlphp\Target
      */
-    public function addMatch(\Xacmlphp\Match $match)
+    public function addMatch(Match $match)
     {
         $this->matches[] = $match;
         return $this;
@@ -31,6 +33,8 @@ class Target
      * Add multiple new Matches to the set
      *
      * @param array $matches Multiple matches
+     *
+     * @return $this
      */
     public function addMatches(array $matches)
     {
