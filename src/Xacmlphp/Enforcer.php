@@ -60,7 +60,7 @@ class Enforcer
      *
      * @return bool Allowed/not allowed status
      */
-    public function isAuthorized(Subject $subject, Resource $resource, Action $action)
+    public function isAuthorized(Subject $subject, Resource $resource, Action $action = null)
     {
         $decider = $this->getDecider();
         if ($decider === null) {
