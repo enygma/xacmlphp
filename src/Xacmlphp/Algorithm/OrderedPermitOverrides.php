@@ -3,8 +3,9 @@
 namespace Xacmlphp\Algorithm;
 
 /**
- * According to "First Applicable", evaluation happens in the order
- * the rules are in the policy, returning the result of the first item
+ * According to "Ordered Permit Overrides", evaluation happens 
+ * in the order the rules are in the policy and if any policy in the set
+ * passes, return PERMIT
  */
 class OrderedPermitOverrides extends \Xacmlphp\Algorithm
 {
