@@ -3,8 +3,8 @@
 namespace Xacmlphp\Algorithm;
 
 /**
- * According to "Deny Overrides" if any policy in the set
- * fails, return DENY
+ * According to "Allow Overrides" if any policy in the set
+ * passes, return PERMIT
  */
 class AllowOverrides extends \Xacmlphp\Algorithm
 {
