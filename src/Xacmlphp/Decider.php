@@ -52,7 +52,7 @@ class Decider
      *
      * @return bool
      */
-    public function evaluate(Subject $subject, PolicySet $policySet, Action $action)
+    public function evaluate(Subject $subject, PolicySet $policySet, Action $action = null)
     {
         // get the subject's attributes
         $this->setSubjectAttributes($subject->getAttributes());
