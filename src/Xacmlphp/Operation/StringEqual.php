@@ -9,6 +9,6 @@ class StringEqual extends \Xacmlphp\Operation
         $prop1 = $this->getProperty1();
         $prop2 = $this->getProperty2();
 
-        return $prop1 == $prop2;
+        return $prop1 === $prop2;
     }
 }
